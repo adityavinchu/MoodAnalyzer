@@ -10,15 +10,10 @@ namespace MSTestingMood
         public void MoodAnalyzer_case1()
         {
             Program mood = new Program();
-            string moodtype = mood.AnalyzeMood("I am in SAD mood");
-            Assert.AreEqual("SAD", moodtype);
-        }
-
-        public void MoodAnalyzer_case2()
-        {
-            Program mood = new Program();
-            string moodtype = mood.AnalyzeMood("I am in HAPPY mood");
+            string str =null;
+            string moodtype = mood.AnalyzeMood(str);
             Assert.AreEqual("HAPPY", moodtype);
         }
+
     }
 }
