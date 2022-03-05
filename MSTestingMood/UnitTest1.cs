@@ -7,13 +7,23 @@ namespace MSTestingMood
     public class UnitTest1
     {
         [TestMethod]
-        public void MoodAnalyzer_case1()
+        public void Moodanalyser_testTC3a()
         {
-            Program mood = new Program();
-            string str =null;
-            string moodtype = mood.AnalyzeMood(str);
-            Assert.AreEqual("HAPPY", moodtype);
-        }
+            string s = null;
+            Mood_Analyser mood = new Mood_Analyser(s);
+            string moodtype = mood.AnalyseMood();
+            Assert.AreEqual("The mood is Null", moodtype);
 
+        }
+        [TestMethod]
+
+        public void Moodanalyser_testTC3b()
+        {
+            string s = "";
+            Mood_Analyser mood = new Mood_Analyser(s);
+            string moodtype = mood.AnalyseMood();
+            Assert.AreEqual("The mood is empty", moodtype);
+
+        }
     }
 }
