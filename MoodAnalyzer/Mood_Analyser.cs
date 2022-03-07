@@ -10,10 +10,10 @@ namespace MoodAnalyzer
     {
         public string message;
 
-        public Mood_Analyser(string message)
+        public Mood_Analyser()
         {
-            this.message = message;
         }
+
         public string AnalyseMood()
         {
             try
@@ -28,13 +28,13 @@ namespace MoodAnalyzer
                 {
                     throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.EMPTY_MOOD, "The mood is Null");
                 }
-                string[] moods = { "sad", "fear", "anger", "unhappy", "sombre", "melancholy", "homesick" };
+                string[] wordbag = { "sad", "unhappy", "gloomy", "sombre", "melancholy", "homesick" };
                 string[] words = message.Split(' ');
                 for (int i = 0; i < words.Length; i++)
                 {
-                    for (int j = 0; j < moods.Length; j++)
+                    for (int j = 0; j < wordbag.Length; j++)
                     {
-                        if (words[i].ToLower().CompareTo(moods[j]) == 0) sad = true;
+                        if (words[i].ToLower().CompareTo(wordbag[j]) == 0) sad = true;
                     }
                 }
                 if (sad)

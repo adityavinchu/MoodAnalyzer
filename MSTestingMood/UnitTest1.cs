@@ -7,23 +7,33 @@ namespace MSTestingMood
     public class UnitTest1
     {
         [TestMethod]
-        public void Moodanalyser_testTC3a()
+        public void Moodanalyser_testTC4a()
         {
-            string s = null;
-            Mood_Analyser mood = new Mood_Analyser(s);
-            string moodtype = mood.AnalyseMood();
-            Assert.AreEqual("The mood is Null", moodtype);
 
+            object expected = new Mood_Analyser();
+            object obj = MoodAnalyserFactory.CreateMoodAnalyser("MoodAnalyser.Mood_Analyser", "Mood_Analyser");
+            var expectedtype = expected.GetType();
+            var objtype = obj.GetType();
+            var result = expectedtype == objtype;
+            Assert.IsTrue(result);
         }
         [TestMethod]
-
-        public void Moodanalyser_testTC3b()
+        public void Moodanalyser_testTC4b()
         {
-            string s = "";
-            Mood_Analyser mood = new Mood_Analyser(s);
-            string moodtype = mood.AnalyseMood();
-            Assert.AreEqual("The mood is empty", moodtype);
 
+            object expected = new Mood_Analyser();
+            object obj = MoodAnalyserFactory.CreateMoodAnalyser("MoodAnalysr.Mood_Analyser", "Mood_Analyser");
+            string responce = obj.ToString();
+            Assert.AreEqual("MoodAnalyser.MoodAnalyserException: No such Class", responce);
+        }
+        [TestMethod]
+        public void Moodanalyser_testTC4c()
+        {
+
+            object expected = new Mood_Analyser();
+            object obj = MoodAnalyserFactory.CreateMoodAnalyser("MoodAnalyser.Mood_Analyser", "Mood_Analyse");
+            string responce = obj.ToString();
+            Assert.AreEqual("MoodAnalyser.MoodAnalyserException: No Such Method", responce);
         }
     }
 }
