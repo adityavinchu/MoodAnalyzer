@@ -26,6 +26,7 @@ namespace MoodAnalyzer
                 {
                     return  new MoodAnalyserException(MoodAnalyserException.ExceptionType.IMPROPER_CLASS_NAME, "No such Class");
                 }
+
             }
             else
             {
